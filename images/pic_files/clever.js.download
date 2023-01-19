@@ -1,0 +1,75 @@
+(function($) {
+    $(document).ready(function() {
+        $(".owl-carousel").owlCarousel({
+	   		loop: false,
+	        items: 1,
+		  	dots: false,
+			autoHeight: true,
+	        slideSpeed: 2000,
+	        autoplay: false,
+	        thumbs: true,
+	        thumbImage: true,
+	        thumbContainerClass: 'owl-thumbs',
+	        thumbItemClass: 'owl-thumb-item'
+	   	});
+
+        $('.img-popup').magnificPopup({
+	        type: 'image',
+	        gallery: {
+	            enabled: true
+	        }
+	    });
+
+	    // Product Page Tabs
+	 //    $("body.page .tab-flex-wrap ul.et_pb_tabs_controls li").each(function() {
+		//   // console.log();
+		//   var $tablink = $( this ).find('a').text().replace(/[^a-z0-9\s]/gi, '').replace(/\s+/g, '-').toLowerCase();
+		//   // console.log($tablink);
+		//   $( this ).find('a').attr('href', '#'+$tablink);
+		// });
+		// // $('#conditions-tab a').click();
+		// $("a[href='#specifications']").click();
+
+	    
+
+	 //    var hash = document.location.hash;
+		// hashLenght = hash.match(/#(.*?)(.*?)(?=\|)/);
+	 // 	$('html, body').animate({
+		// 	scrollTop: ($(hashLenght[0]).offset().top - 150)
+		// },0);
+		// end
+
+    });
+}) (jQuery);
+
+
+
+
+jQuery(function ($) {
+	$(document).ready(function () {
+		$("body ul.et_mobile_menu li.menu-item-has-children, body ul.et_mobile_menu  li.page_item_has_children").append('<a href="#" class="mobile-toggle"></a>');
+		$('ul.et_mobile_menu li.menu-item-has-children .mobile-toggle, ul.et_mobile_menu li.page_item_has_children .mobile-toggle').click(function (event) {
+			event.preventDefault();
+			$(this).parent('li').toggleClass('dt-open');
+			$(this).parent('li').find('ul.children').first().toggleClass('visible');
+			$(this).parent('li').find('ul.sub-menu').first().toggleClass('visible');
+		});
+		iconFINAL = 'P';
+		$('body ul.et_mobile_menu li.menu-item-has-children, body ul.et_mobile_menu li.page_item_has_children').attr('data-icon', iconFINAL);
+		$('.mobile-toggle').on('mouseover', function () {
+			$(this).parent().addClass('is-hover');
+		}).on('mouseout', function () {
+			$(this).parent().removeClass('is-hover');
+		})
+	});
+});
+
+
+$(window).scroll(function(){
+  var sticky = $('header'),
+      scroll = $(window).scrollTop();
+
+  if (scroll >= 100) sticky.addClass('fixed');
+  else sticky.removeClass('fixed');
+});
+
